@@ -1,5 +1,5 @@
 # ProjectDirectory
-A directory for full projects.
+A directory for my projects.
 
 **Movie Review Classifier** (movie_review_predictor) - An app that uses sentiment analysis and machine learning techniques to determine if a movie review is positive or negative.
 
