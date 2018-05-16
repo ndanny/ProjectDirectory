@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %} {% endblock %}</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyADVXxYPoL2NkFXUH5yGyq5uYjSY7oc_TM",
+        authDomain: "wiki-7379e.firebaseapp.com",
+        databaseURL: "https://wiki-7379e.firebaseio.com",
+        projectId: "wiki-7379e",
+        storageBucket: "wiki-7379e.appspot.com",
+        messagingSenderId: "233595255333"
+      };
+      firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{{url_for('index')}}">Home</a>
+                    <a class="nav-item nav-link" href="{{url_for('pages')}}">Pages</a>
+
+                    {% if 'email' not in session %}
+                    <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                    {% else %}
+                    <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        <br />
+        {% block body %}
+        {% endblock %}
+    </div>
+</body>
+</html>
